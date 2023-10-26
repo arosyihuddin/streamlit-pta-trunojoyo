@@ -62,7 +62,7 @@ else:
     button = st.button("Klasifikasikan")
 
     if button:
-        x_new = vectorizer.transform([abstrak])
+        x_new = vectorizer.transform([abstrak]).toarray()
         lda_x = lda.transform(x_new)
         predictions = model.predict(lda_x)
         st.write("Abstrak termasuk dalam Kategori : ", predictions[0])
